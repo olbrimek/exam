@@ -2,9 +2,9 @@ class EBook(Book):
     def __init__(self, title: str, author: str, page_count: int, size: float, registration_code: str):
         """
         Initialize an EBook object.
-        :param title: Title of the book (inherited from Book).
-        :param author: Author of the book (inherited from Book).
-        :param page_count: Page count of the book (inherited from Book).
+        :param title: Title of the book
+        :param author: Author of the book
+        :param page_count: Page count of the book
         :param size: Size of the eBook in MB.
         :param registration_code: Registration code, must be 16 digits to be valid.
         """
