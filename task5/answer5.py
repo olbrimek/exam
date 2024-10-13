@@ -1,3 +1,5 @@
+from exam_lib import Book
+
 class EBook(Book):
     def __init__(self, title: str, author: str, page_count: int, size: float, registration_code: str):
         """
@@ -54,3 +56,5 @@ class EBook(Book):
 
 ebook = EBook("Hosi od Bobri reky", "Jaroslav Foglar", 300, 2.5, "1234567890123456")
 print(ebook.registration_code)
+print(ebook.author)
+print(ebook.title)
