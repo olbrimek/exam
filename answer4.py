@@ -38,11 +38,11 @@ form_html = '''
 @app.route('/', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
-        # Get the form data
+
         name = request.form['name']
         email = request.form['email']
 
-        # Validate the form data
+
         if not name:
             error = "Name cannot be empty."
             return render_template_string(form_html, error=error)
@@ -50,26 +50,26 @@ def register():
             error = "Email must contain an '@' sign."
             return render_template_string(form_html, error=error)
 
-        # If the data is valid, insert it into the database
+
         try:
             conn = connect_db()
             cursor = conn.cursor()
 
-            # Insert the reader data into the Readers table
+
             cursor.execute("INSERT INTO Readers (name, email) VALUES (?, ?)", (name, email))
 
-            # Commit the transaction and close the connection
+
             conn.commit()
             conn.close()
 
-            # Redirect to the same page (clear the form)
+
             return redirect(url_for('register'))
 
         except sqlite3.Error as e:
             error = f"Database error: {str(e)}"
             return render_template_string(form_html, error=error)
 
-    # For GET requests, show the empty form
+
     return render_template_string(form_html, error=None)
 
 if __name__ == '__main__':
